@@ -1,7 +1,15 @@
-#Read data
+---
+title: "GraphGDPVietNam"
+author: "Tran Nhat Han"
+date: '2022-04-23'
+output: html_document
+---
+```{r}
 df = read.csv("GDP_VN.csv")
 head(df)
-#Handling missing values
+```
+
+```{r}
 symnum(cor(df, use = "complete.obs"))
 lm(GDP.Per.Capita.At.Foreign.Currency ~ ., df)
 df$GDP.Per.Capita.At.Foreign.Currency[2] = -4.489e+03 + 
@@ -11,12 +19,14 @@ df$GDP.Per.Capita.At.Foreign.Currency[2] = -4.489e+03 +
   4.646e-05*df$Gross.Capital.Formation[2] + 
   -1.988e-04*df$Final.Consumption[2] + 
   -1.061e-04*df$Export.Of.Goods.And.Services[2]
-# Heat map
+```
+
+```{r}
 library(pheatmap)   
 pheatmap(cor(df), main="My Heatmap", cluster_cols=F, cluster_rows=F, )
-# Bar plot
-df$Final.Consumption
+```
+
+```{r}
 barplot(Total.GDP ~ Year, df, col = "yellowgreen")
-# Lines plot
-plot(Total.GDP/Total.GDP[length(Total.GDP)] ~ Year, df, col = "yellowgreen")
-lines(Total.GDP/Total.GDP[length(Total.GDP)] ~ Year, df)
+```
+
