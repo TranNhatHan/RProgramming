@@ -20,3 +20,6 @@ barplot(Total.GDP ~ Year, df, col = "yellowgreen")
 # Lines plot
 plot(Total.GDP/Total.GDP[length(Total.GDP)] ~ Year, df, col = "yellowgreen")
 lines(Total.GDP/Total.GDP[length(Total.GDP)] ~ Year, df)
+# Pair plot 
+pairs(df, pch=1)
+# 
